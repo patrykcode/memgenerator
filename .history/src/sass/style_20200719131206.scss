@@ -1,0 +1,40 @@
+
+html {
+    body {
+        font-size:15px; 
+        #app{
+            margin: auto;
+            left: 0;
+            right: 0;
+            position: absolute;
+            max-width: 700px;
+            margin-top: 200px;
+        }
+        .canvas{
+            background-image: url('../bg.png');
+            height: 500px;
+            width: 500px;
+            float: left;
+            .layer-element{
+                border: 1px solid red;
+                width: auto;
+                float: left;
+                padding: 5px;
+                cursor: pointer;
+            }
+        }
+        .layer{
+            width: 200px;
+            float: left;
+            position: relative;
+            ul#layers {
+                position: relative;
+                 li{
+                    padding:5px;
+                    background-color:#efefef;
+                }
+            }
+            
+        }
+    }
+}

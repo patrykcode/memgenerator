@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/index.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+    </head>
+    <body>
+        <div id="app">
+            <div class="layer">
+                <ul id="layers">
+                    <li v-bind:key="index" v-for="layer,index in layers">
+                        {{layer}} 
+                        <button class="btn btn-danger btn-small " v-on:click="deleteLayer(index)">
+                            <fa-trash v-bind:size="15"/>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-primary btn-small w-100" v-on:click="addLayer()">
+                            <fa-plus v-bind:size="15"/>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="canvas">
+                <textLayer v-bind:data="{value:'test',style:''}"></textLayer>
+                <div v-bind:key="'element'+index" v-for="element,index in layers">
+                    <component :is="element.typ" v-bind:data="element.data"></component>
+                   
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

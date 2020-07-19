@@ -1,0 +1,16 @@
+html {
+    body {
+        font-size:15px; 
+        .canvas{
+            background-image: url('../bg.png');
+            height: 500px;
+    width: 500px;
+    float: left;
+        }
+        .layer{
+            width: 200px;
+            float: left;
+            position: relative;
+        }
+    }
+}

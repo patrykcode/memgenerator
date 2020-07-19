@@ -1,0 +1,66 @@
+html body, html div, html dl, html dt, html dd, html ul, html ol, html li, html h1, html h2, html h3, html h4, html h5, html h6, html pre, html form, html fieldset, html input, html textarea, html p, html blockquote, html th, html td {
+  margin: 0;
+  padding: 0; }
+
+html body {
+  font-size: 15px; }
+  html body #app {
+    margin: auto; }
+  html body #canvas {
+    position: relative;
+    background-image: url("../bg.png");
+    height: 500px;
+    width: 500px;
+    float: left; }
+    html body #canvas .layer-element {
+      cursor: pointer;
+      position: relative; }
+    html body #canvas [id^="element"] {
+      z-index: 9; }
+    html body #canvas [id^="handler"] {
+      cursor: move;
+      z-index: 10;
+      position: absolute; }
+  html body label {
+    margin: 0; }
+  html body .layer {
+    width: 250px;
+    float: left;
+    position: relative; }
+    html body .layer .layers-accordeon {
+      margin: 0 15px; }
+      html body .layer .layers-accordeon .items-accordeon .header, html body .layer .layers-accordeon .items-accordeon .header-del, html body .layer .layers-accordeon .items-accordeon .header-switch {
+        float: left; }
+      html body .layer .layers-accordeon .items-accordeon .header {
+        padding: 5px 10px;
+        background-color: #efefef;
+        border: 1px solid #ddd;
+        display: block;
+        width: calc(100% - 70px);
+        border-right-color: transparent; }
+        html body .layer .layers-accordeon .items-accordeon .header:first-of-type {
+          border-radius: 3px 0 0 3px; }
+      html body .layer .layers-accordeon .items-accordeon .header-del, html body .layer .layers-accordeon .items-accordeon .header-switch {
+        padding: 5px 10px;
+        background-color: #efefef;
+        border: 1px solid #ddd;
+        width: 35px; }
+        html body .layer .layers-accordeon .items-accordeon .header-del:hover, html body .layer .layers-accordeon .items-accordeon .header-switch:hover {
+          background-color: #ddd; }
+      html body .layer .layers-accordeon .items-accordeon .header-switch {
+        border-right-color: transparent; }
+      html body .layer .layers-accordeon .items-accordeon .body {
+        border: 1px solid #dddddd;
+        padding: 3px; }
+        html body .layer .layers-accordeon .items-accordeon .body:last-of-type {
+          border-radius: 3px; }
+  html body input, html body select {
+    width: 100%;
+    margin: 0;
+    padding: .6em .7em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #454545;
+    font-size: 13px;
+    line-height: 1.15384615; }

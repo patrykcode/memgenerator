@@ -1,0 +1,95 @@
+
+html {
+    body {
+        font-size:15px; 
+        #app{
+            margin: auto;
+            // left: 0;
+            // right: 0;
+            // position: absolute;
+            // max-width: 700px;
+            // margin-top: 200px;
+        }
+        #canvas{
+            position: relative;
+            background-image: url('../bg.png');
+            height: 500px;
+            width: 500px;
+            float: left;
+            .layer-element{
+                cursor: pointer;
+                position: absolute;
+            }
+            [id^="element"]{
+                z-index:9;
+            }
+            [id^="handler"]{
+                cursor: move;
+                z-index: 10;
+            }
+
+        }
+       
+        .layer{
+            width: 250px;
+            float: left;
+            position: relative;
+
+            .layers-accordeon{
+                margin:0 15px;
+                .items-accordeon{
+                    .header,.header-del{
+                        float:left;
+                    }
+                    .header{
+                        padding: 5px 10px;
+                        background-color: #efefef;
+                        border: 1px solid #ddd;
+                        &:first-of-type{
+                            border-radius:  3px 0 0 3px ;
+                        }
+                       
+                        display: block;
+                        width:calc(100% - 35px);
+                        border-right-color: transparent;
+                    }
+                    .header-del{
+                        padding: 5px 10px;
+                        background-color: #efefef;
+                        border: 1px solid #ddd;
+                        &:first-of-type{
+                            border-radius: 0 3px 3px 0;
+                        }
+                        &:last-of-type{
+                            border-radius: 0 3px 3px 0;
+                        }
+                        
+                        width: 35px;
+                        &:hover{
+                            background-color: #ddd;
+                        }
+                    }
+                    .body{
+                        border: 1px solid rgb(221, 221, 221);
+                        padding:3px;
+                        &:last-of-type{
+                            border-radius: 3px;
+                        }
+                    }
+                }
+            }
+            
+        }
+        input,select{
+            width: 100%;
+            margin: 0;
+            padding: .6em .7em;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background-color: #fff;
+            color: #454545;
+            font-size: 13px;
+            line-height: 1.15384615;
+        }
+    }
+}

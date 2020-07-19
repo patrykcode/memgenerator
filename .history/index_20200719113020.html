@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/index.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="app">
+           
+
+            <div class="layer">
+                <ul>
+                    <li v-bind:key="index" v-for="layer,index in layers">
+                        {{layer}}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        
+    </body>
+</html>

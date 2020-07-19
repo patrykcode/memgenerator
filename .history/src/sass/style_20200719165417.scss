@@ -1,0 +1,68 @@
+
+html {
+    body {
+        font-size:15px; 
+        #app{
+            margin: auto;
+            // left: 0;
+            // right: 0;
+            // position: absolute;
+            // max-width: 700px;
+            margin-top: 200px;
+        }
+        #canvas{
+            background-image: url('../bg.png');
+            height: 500px;
+            width: 500px;
+            float: left;
+            .layer-element{
+                cursor: pointer;
+            }
+            [id^="element"]{
+                position: absolute;
+                z-index:9;
+            }
+            [id^="handler"]{
+                cursor: move;
+                position: absolute;
+                z-index: 10;
+                :after{
+                    content:"";
+                    position: absolute;
+                    background-image: url('../move.png');
+                    z-index: 11;
+                    width: 20px;
+                    height: 20px;
+                    top: -10px;
+                    right: -10px;
+                    background-size: contain;
+                }
+            }
+
+        }
+        .layer{
+            width: 200px;
+            float: left;
+            position: relative;
+            ul#layers {
+                position: relative;
+                 li{
+                    padding:5px;
+                    background-color:#efefef;
+                }
+            }
+            
+        }
+        input,select{
+            width: 100%;
+            margin: 0;
+            padding: .6em .7em;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background-color: #fff;
+            color: #454545;
+            font-size: 13px;
+            line-height: 1.15384615;
+        }
+    }
+}
