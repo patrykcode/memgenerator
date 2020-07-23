@@ -10,26 +10,26 @@ class Layer
                 'font-family':'arial',
                 'text-shadow':'1px  1px 2px black,1px -1px 2px black,-1px  1px 2px black,-1px -1px 2px black',
                 'color':'red',
-                'border':'1px solid red',
+                // 'border':'1px solid red',
                 'width':'auto',
                 'float':'left',
                 // 'padding':'5px',
-                'position':'absolute',
-                'top':5,
-                'left':5
+                // 'position':'absolute',
+                'top':0,
+                'left':0
             },
             'img-layer': {
                 'width':'auto',
                 'position':'absolute',
-                'top':5,
-                'left':5
+                'top':0,
+                'left':0
             }
         }
 
 
         this.data = data || {
             style: this.types[this.typ],
-            value: this.typ == 'text-layer'?'Wpisz tekst' :'/placeholder.png'
+            value: this.typ == 'text-layer'?'Wpisz tekst' :'/bg.png'
         }
         this.show = false;
         return this

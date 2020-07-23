@@ -18,9 +18,7 @@ html body {
     html body #canvas [id^="element"] {
       z-index: 9; }
     html body #canvas [id^="handler"] {
-      cursor: move;
-      z-index: 10;
-      position: absolute; }
+      cursor: move; }
   html body label {
     margin: 0; }
   html body .layer {

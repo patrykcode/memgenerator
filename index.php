@@ -55,11 +55,12 @@
                 </div>
             </div>
             <div id="canvas">
-                <div v-bind:key="'element'+index" v-for="element,index in layers" v-bind:id="'element'+index">
-                    <div class="dragable" v-on:mousedown="drag" v-on:click="accordToggle(index)" v-bind:id="'handler'+index+'element'" >
-                        <component  @click.stop="event.stopPropagation()" :is="element.typ" v-bind:k="index" v-bind:elem="element.data"></component>
+                <template v-for="element,index in layers">
+                    <div class="dragable" v-on:mousedown="drag" v-on:click="accordToggle(index)" v-bind:style="{'z-index':10+index}" v-bind:id="'handler'+index+'element'" >
+                        <div class="full"></div>
+                        <component  :is="element.typ" v-bind:k="index" v-bind:elem="element.data"></component>
                     </div>
-                </div>
+                </template>
             </div>
             <canvas id="layerCanvas"  style="border:1px solid #000000;"></canvas>
         </div>

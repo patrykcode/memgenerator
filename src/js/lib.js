@@ -42,10 +42,25 @@ document.addEventListener('DOMContentLoaded',function(){
                 }
             }
         },
-        template:'<div @click.stop="es" class="layer-element" v-bind:style="elem.style">'+
-        '<img v-bind:src="elem.value"/>'+
+        template:'<div @click="es" class="layer-element" v-bind:style="elem.style">'+
+        '<img v-bind:src="elem.value" @load="base" style="max-width:500px;height:auto;"/>'+
         '</div>',
         methods:{
+            base(e){
+                var img = e.target; 
+                var image = new Image();
+                image.addEventListener('load', function(e) {
+                let canvas = document.createElement('canvas');
+                let context = canvas.getContext('2d');
+                canvas.width = image.width;
+                canvas.height = image.height;
+                context.drawImage(image, 0, 0);
+                var base64 = canvas.toDataURL('image/png');
+                img.setAttribute('data-src',base64)
+               })
+               image.src = e.target.src;
+
+            },
             es(e){
                 e.stopPropagation()
             }
@@ -95,13 +110,36 @@ document.addEventListener('DOMContentLoaded',function(){
                 this.layers[i].typ = 'img-layer'
                 this.layers[i].data.value = (this.layers[i].typ == 'text-layer' ? 'Wpisz tekst' : window.location.href + 'placeholder.png')
                 this.layers[i].data.style = this.layers[i].types[this.layers[i].typ]
+                var $this = this
+                if(this.layers[i].typ == 'img-layer'){
+                    var input = document.createElement('input')
+                    input.type = "file"
+                    input.onchange = function(e){
+                        if (e.target.files && e.target.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                $this.layers[i].data.value = e.target.result;
+                            }
+                            reader.readAsDataURL(e.target.files[0]);
+                        }
+                    }
+                    input.click()
+                }
+               
+                setTimeout(this.render,300);
             },
             htmlToXml(html) {
                 var doc = document.implementation.createHTMLDocument('');
                 doc.write(html);
+                var imgs = document.getElementsByTagName('img');
+                
+                for(var i=0; i<imgs.length; i++){
+                    imgs[i].src = imgs[i].getAttribute('data-src');
+                }
+
                 // doc.documentElement.setAttribute('xmlns', doc.documentElement.namespaceURI);
                 html = (new XMLSerializer).serializeToString(doc.body);
-                console.log(html);
+                // console.log(html); 
                 return html;
             },
             downloadSVG() {
@@ -125,9 +163,8 @@ document.addEventListener('DOMContentLoaded',function(){
                   this.htmlToXml(document.getElementById('canvas').innerHTML) +
                   '</foreignObject>' +
                   '</svg>'; 
-
                 var img = new Image();
-                 var $this = this
+                var $this = this
                 img.addEventListener('load', function() {
                     ctx.drawImage(img, 0, 0);
                     $this.downloadUrl = canvas.toDataURL("image/png");
@@ -135,8 +172,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
                 img.setAttribute('crossorigin', 'Anonymous');
                 img.src = data;
-               
-
             },
             drag(e){
                 this.pos[e.target.id] = {
@@ -145,9 +180,9 @@ document.addEventListener('DOMContentLoaded',function(){
                     3:0,
                     4:0
                 }
-                if(e.target && e.target.classList == 'dragable'){
+                // if(e.target && e.target.classList == 'dragable'){
                    this.dragMouseDown(e) 
-                }
+                // }
                 
             },
             dragMouseDown(e) {
@@ -180,13 +215,12 @@ document.addEventListener('DOMContentLoaded',function(){
                 
                 document.onmouseup = null;
                 document.onmousemove = null;
-                setTimeout(this.render,200);
+                setTimeout(this.render,300);
             }
         }
     })
 
    
 })
-
 
 
