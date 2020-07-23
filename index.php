@@ -2,7 +2,7 @@
 <html>
     <head>
         <script src="js/index.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/style.css"/>
     </head>
     <body>
@@ -24,26 +24,26 @@
                         </div>
                         
                         <div class="body" v-show.slow="layer.show"> 
-                        <label for="">
-                            czcionka
-                        </label>
-                        <select v-model="layer.data.style['font-family']">
-                            <option>arial</option>
-                            <option>ubuntu</option>
-                            <option>helvetica</option>
-                        </select>
-                        <label for="">
-                            wieklość czcionki
-                        </label>
-                        <input type="range"  min="1" max="75" v-model="layer.data.size" @change="layer.data.style['font-size']=layer.data.size+'px'" step="1"/>
-                        <label for="">
-                            tekst
-                        </label>
-                        <input type="text" v-model="layer.data.value">
-                        <label for="">
-                            color
-                        </label>
-                        <input type="color" v-model="layer.data.style.color">
+                            <label for="">
+                                czcionka
+                            </label>
+                            <select v-model="layer.data.style['font-family']">
+                                <option>arial</option>
+                                <option>ubuntu</option>
+                                <option>helvetica</option>
+                            </select>
+                            <label for="">
+                                wieklość czcionki
+                            </label>
+                            <input type="range"  min="1" max="75" v-model="layer.data.size" @change="layer.data.style['font-size']=layer.data.size+'px'" step="1"/>
+                            <label for="">
+                                tekst
+                            </label>
+                            <input type="text" v-model="layer.data.value"/>
+                            <label for="">
+                                color
+                            </label>
+                            <input type="color" v-model="layer.data.style.color"/>
                         
                         </div>
                     </div>
